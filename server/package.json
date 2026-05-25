@@ -13,12 +13,21 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/kashish00208/System-design/issues"
   },
   "homepage": "https://github.com/kashish00208/System-design#readme",
   "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/websocket": "^1.0.10",
+    "@types/ws": "^8.18.1",
     "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14",
+    "websocket": "^1.0.35",
+    "ws": "^8.21.0"
   }
 }

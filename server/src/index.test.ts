@@ -4,6 +4,7 @@ describe("chat application", () => {
     test("Message sent from room 1 reaches to another participants in room 1 ", async () => {
         const ws1 = new WebSocket(BACKEND_URL)
         const ws2 = new WebSocket(BACKEND_URL)
+        console.log("Connection established")
 
         await new Promise<void>((resolve, reject) => {
             let count = 0;
@@ -21,6 +22,7 @@ describe("chat application", () => {
                 }
             }
         })
+        console.log("Passed the first round")
         ws1.send(JSON.stringify({
             type: "join-room",
             room: "Room 1"

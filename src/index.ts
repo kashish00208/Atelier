@@ -1,10 +1,10 @@
 import express from 'express'
 const app = express();
-import { ragisterUSer , loginUSer , logoutUSer } from './auth/auth.route';
+import { registerUser , loginUser , logoutUser } from './auth/auth.route';
 
 app.use(express.json());
 
 //Authentication Routes 
-app.post("/auth/ragister",ragisterUSer)
-app.post("/auth/login",loginUSer)
-app.post("/auth/logout",logoutUSer)
+app.post("/auth/ragister",registerUser)
+app.post("/auth/login",loginUser)
+app.post("/auth/logout",logoutUser)

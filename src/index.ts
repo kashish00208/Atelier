@@ -1,27 +1,10 @@
-import { WebSocketServer } from "ws";
+import express from 'express'
+const app = express();
+import { ragisterUSer , loginUSer , logoutUSer } from './auth/auth.route';
 
-const wss = new WebSocketServer({ port: 3000 });
+app.use(express.json());
 
-let totalConnection = 0;
-
-wss.on("connection", (socket) => {
-  totalConnection++;
-  console.log("Client connected");
-  console.log("Total clients:", totalConnection);
-
-  socket.on("message", (data) => {
-    console.log(data.toString());
-
-    socket.send(
-      JSON.stringify({
-        message: "Received!",
-      })
-    );
-  });
-
-  socket.on("close", () => {
-    totalConnection--;
-    console.log("Client disconnected");
-    console.log("Total clients:", totalConnection);
-  });
-});
+//Authentication Routes 
+app.post("/auth/ragister",ragisterUSer)
+app.post("/auth/login",loginUSer)
+app.post("/auth/logout",logoutUSer)

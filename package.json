@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc --watch",
-    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
-    "test": "jest"
+    "typecheck": "tsc --noEmit",
+    "contract:emit": "prisma contract emit"
   },
   "keywords": [],
   "author": "",
@@ -37,6 +38,7 @@
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.23.1",
     "redis": "^6.3.1",
+    "tsx": "^4.23.15",
     "zod": "^4.6.7"
   }
 }

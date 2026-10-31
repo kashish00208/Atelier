@@ -8,3 +8,7 @@ app.use(express.json());
 app.post("/auth/ragister",registerUser)
 app.post("/auth/login",loginUser)
 app.post("/auth/logout",logoutUser)
+
+app.listen(8080,()=>{
+    console.log("Server running on port 8080")
+})

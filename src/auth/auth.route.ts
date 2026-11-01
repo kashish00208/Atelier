@@ -33,7 +33,6 @@ export async function registerUser(req: Request, res: Response) {
         name,
         email,
         password: hashedPassword,
-        createdAT: new Date(),
       },
       select: {
         id: true,

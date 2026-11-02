@@ -14,7 +14,7 @@ export async function registerUser(req: Request, res: Response) {
       });
     }
 
-    const existingUser = await prisma.user.findFirst({
+    const existingUser = await prisma.user.findUnique({
       where: {
         email: email,
       },

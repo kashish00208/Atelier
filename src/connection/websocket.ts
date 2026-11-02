@@ -1,19 +1,19 @@
-
 import { WebSocketServer, WebSocket } from "ws";
 
-const wss = new WebSocketServer({
-  port: 8080
-});
+const PORT = 8081;
 
+const wss = new WebSocketServer({ port: PORT });
 console.log("WebSocket server running on port 8080");
 
 wss.on("connection", (ws, request) => {
   console.log("New client connected");
 
-  ws.send(JSON.stringify({
-    type: "WELCOME",
-    message: "Connected to server!"
-  }));
+  ws.send(
+    JSON.stringify({
+      type: "WELCOME",
+      message: "Connected to server!",
+    }),
+  );
   ws.on("message", (data, isBinary) => {
     if (isBinary) {
       return;
@@ -25,10 +25,12 @@ wss.on("connection", (ws, request) => {
 
     for (const client of wss.clients) {
       if (client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify({
-          type: "MESSAGE",
-          message
-        }));
+        client.send(
+          JSON.stringify({
+            type: "MESSAGE",
+            message,
+          }),
+        );
       }
     }
   });
